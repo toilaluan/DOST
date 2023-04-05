@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        {{#each docs}}
+        <div class="card mt-4 mx-2" style="width: auto; transition: box-shadow 0.3s;">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.summary}}</p>
+                <p class="card-text">{{#each this.tags}}<span class="badge bg-info mx-1">{{this}}</span>{{/each}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <style>
+        .card:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</div>

@@ -3,8 +3,10 @@ const express = require('express');
 const { engine } = require ('express-handlebars');
 const app = express();
 const router = require('./routes')
-port = 3000
+const db = require('./config/db')
 
+port = 3000;
+db.connect();
 app.engine('.hbs', engine({
     extname: '.hbs'
 }));
