@@ -1,7 +1,8 @@
 const homeRouter = require('./home')
-const readRouter = require('./read')
+const docRouter = require('./docs')
 function route(app){
-    app.use('/read', readRouter);
+    
+    app.use('/doc', docRouter);
     app.use('/', homeRouter);
 }
 

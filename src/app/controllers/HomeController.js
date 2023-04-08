@@ -9,9 +9,13 @@ class HomeController{
         Doc.find({}, function (err, docs){
             if (!err){
                 docs = docs.map(doc => {
-                    let inner_link = 'http://localhost:3000/read?id='+doc._id;
+                    let inner_link = 'http://localhost:3000/doc/show?id='+doc._id;
                     doc = doc.toObject();
-                    doc.tags = doc.tags.split(',');
+                    try{
+                        doc.tags = doc.tags.split(',');
+                    }catch(err){
+                        
+                    }
                     doc.inner_link = inner_link;
                     return doc;
                 })
