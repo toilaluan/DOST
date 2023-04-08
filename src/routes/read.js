@@ -4,4 +4,5 @@ const readController = require('../app/controllers/ReadController')
 
 router.use('/', readController.index)
 
+
 module.exports = router

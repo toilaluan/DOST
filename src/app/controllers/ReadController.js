@@ -12,7 +12,7 @@ class ReadController {
                 let id = gdUtils.getFileIdFromUrl(doc.link)
                 let previewLink = gdUtils.idToPreviewLink(id)
                 doc.link = previewLink
-                res.render('read', doc)
+                res.render('read', { doc,style: 'app.css'})
             }
         })
 
