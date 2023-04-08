@@ -2,13 +2,10 @@ const mongoose = require('mongoose');
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb://localhost:27017/doc_stock', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect('mongodb://127.0.0.1/my_database');
         console.log('Connect to DB successfully');
     } catch (error) {
-        console.log('Connect failure');
+        console.log(error);
     }
 }
 
