@@ -8,6 +8,7 @@ class HomeController{
         // res.render('home');
         Doc.find({}, function (err, docs){
             if (!err){
+                console.log(docs)
                 docs = docs.map(doc => {
                     let inner_link = 'http://localhost:3000/read?id='+doc._id;
                     doc = doc.toObject();
@@ -15,8 +16,8 @@ class HomeController{
                     doc.inner_link = inner_link;
                     return doc;
                 })
-                // console.log(docs)
-                res.render('home', {docs})
+                console.log(docs)
+                res.render('home', {docs, style: 'app.css'})
             }else{ 
                 res.status(400).json({error: "ERROR!!"});
             }

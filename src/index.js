@@ -4,6 +4,7 @@ const { engine } = require ('express-handlebars');
 const app = express();
 const route = require('./routes')
 const db = require('./config/db')
+
 app.use(express.static(path.join(__dirname, 'public')));
 console.log(path.join(__dirname, 'public'))
 port = 3000;
