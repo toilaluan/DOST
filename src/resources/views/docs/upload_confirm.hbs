@@ -1,0 +1,33 @@
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Congrat! Your document is uploaded successfully</p>
+    <hr>
+    <p class="mb-0"> Below is the generated summary and tags, review it and confirm.</p>
+</div>
+<form method="POST" action="/doc/store" enctype="multipart/form-data" id="upload-form">
+    <div class="form-group mb-3">
+        <label for="title">Enter your title</label>
+        <textarea class="form-control" id="title" name="title" rows="1">{{this.body.title}}</textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label for="summary">Summary</label>
+        <textarea class="form-control" id="summary" rows="3"></textarea>
+    </div>
+    <div class="form-group mb-3">
+        <div class="mb-3">
+            <label class="form-label">Tags</label>
+            <input class="form-control" value="tag1, tag2, tag3" id="kt_tagify_1" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script>
+    // The DOM elements you wish to replace with Tagify
+    var input1 = document.querySelector("#kt_tagify_1");
+    var input2 = document.querySelector("#kt_tagify_2");
+
+    // Initialize Tagify components on the above inputs
+    new Tagify(input1);
+    new Tagify(input2);
+</script>

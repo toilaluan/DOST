@@ -2,6 +2,7 @@ const { query } = require('express')
 const Doc = require('../models/Doc')
 const gdUtils = require('./utils/GoogleDriveUtils')
 const {authorize, uploadFile} = require('./utils/DriveAPI')
+const call_api = require('./utils/OpenAPI')
 class ReadController {
     // [GET] /doc/show
     show(req, res) {
@@ -24,13 +25,10 @@ class ReadController {
     }
     // [POST] /doc/store
     store(req, res) {
-        res.json(req.body)
         if (req.file){
-            // res.json(req.file)
-            authorize().then((client) => uploadFile(client, req)).catch(console.error)
-            // console.log(uploadedFile)
-            
+            authorize().then((client) => uploadFile(client, req)).then((uploadedFile) => call_api(uploadedFile, req)).catch(console.error)            
         }
+        res.render('docs/upload_confirm', {body: req.body})
     }
 }
 module.exports = new ReadController
