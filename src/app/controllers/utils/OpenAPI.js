@@ -28,12 +28,7 @@ async function call_api(uploadedFile, req) {
                 console.error(error);
             } else {
                 console.log(response.body);
-                try{
-                    
-                    const gpt_output = JSON.parse(response.body.choices[0].message.content)
-                }catch(error){
-                    console.error(error)
-                }
+                const gpt_output = JSON.parse(response.body.choices[0].message.content)
                 const summary = gpt_output.summary
                 const tags = gpt_output.tags
                 const link = 'https://drive.google.com/file/d/' + uploadedFile.data.id
