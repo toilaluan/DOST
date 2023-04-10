@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 body {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    background-color:#f7f7f7;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  background-color: #f7f7f7;
 }
 
 .card:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.top-btn:active {
+  background-color: red;
+  color: white;
 }
