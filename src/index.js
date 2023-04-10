@@ -14,13 +14,7 @@ const upload = multer({
     dest: 'uploads/'
 });
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
-
-
-port = 7000;
+port = 3000;
 db.connect();
 app.engine('.hbs', engine({
     extname: '.hbs'
