@@ -4,10 +4,10 @@ const path = require('path');
 const process = require('process');
 const { authenticate } = require('@google-cloud/local-auth');
 const { google } = require('googleapis');
-const Doc = require('../../models/Doc')
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 const TOKEN_PATH = path.join(process.cwd(), 'src/public/drive_token/token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'src/public/drive_token/credentials.json');
+
 
 /**
  * Reads previously authorized credentials from the save file.
@@ -83,19 +83,8 @@ async function uploadFile(authClient, req) {
                 requestBody: requestBody,
                 media: media,
             });
-        if (uploadedFile){
-            const link = 'https://drive.google.com/file/d/' + uploadedFile.data.id
-            console.log(link)
-            const title = req.body.title
-            const new_doc = {
-                link: link,
-                title: title
-            }
-            Doc.create(new_doc, (err, result) => {
-                if (err) throw err
-            })
-        }
         console.log('Upload successfully!')
+        return uploadedFile
     } catch (error) {
         console.error(error)
     }
