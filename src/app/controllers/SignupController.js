@@ -2,7 +2,7 @@ const { query } = require("express");
 const User = require("../models/User");
 const { FALSE } = require("node-sass");
 
-class SignupController {
+class SignupController {    
     //[GET] /signup
     index(req, res) {
         res.render("signup", { docs, style: "app.css" });
