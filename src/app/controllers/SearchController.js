@@ -22,7 +22,7 @@ class SearchController {
       .limit(10)
       .sort({ occupation: -1 })
       .exec((err,docs)=>{
-        console.log(docs);
+        // console.log(docs);
         if(err) console.log('err');
         docs = docs.map(doc => {
             let inner_link = 'http://localhost:3000/doc/show?id='+doc._id;
