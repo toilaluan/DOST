@@ -5,7 +5,7 @@ const { api_key, prompts } = require("./prompts");
 const request = require("request");
 async function call_api(uploadedFile, req) {
   const file_stream = fs_raw.readFileSync(req.file.path);
-  PDFParser(file_stream).then((data) => {
+  await PDFParser(file_stream).then((data) => {
     const doc = data.text.slice(0, 5000);
     const default_promt = `We have provided context information below: \n"
             "---------------------\n"
@@ -28,7 +28,7 @@ async function call_api(uploadedFile, req) {
         temperature: 0.0,
       },
     };
-    request.post(options, (error, response, body) => {
+    const new_doc = request.post(options, async (error, response, body) => {
       if (error) {
         console.error(error);
       } else {
@@ -48,10 +48,11 @@ async function call_api(uploadedFile, req) {
           summary: summary,
           tags: tags,
         };
-        Doc.create(new_doc, (err, res) => {
-          if (err) throw err;
-          console.log("Upload successfully!");
-        });
+        // Doc.create(new_doc, (err, res) => {
+        //   if (err) throw err;
+        //   console.log("Upload successfully!");
+        // });
+        return new_doc;
       }
     });
   });

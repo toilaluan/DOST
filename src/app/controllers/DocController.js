@@ -29,9 +29,12 @@ class ReadController {
       authorize()
         .then((client) => uploadFile(client, req))
         .then((uploadedFile) => call_api(uploadedFile, req))
-        .then(() => res.redirect("/"))
+        .then((new_doc) => console.log(new_doc))
         .catch(console.error);
     }
+  }
+  store_confirm(req, res) {
+    res.render()
   }
 }
 module.exports = new ReadController();
