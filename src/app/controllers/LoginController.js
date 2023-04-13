@@ -50,5 +50,4 @@ class LoginController {
     }
 }
 
-module.exports = new LoginController;
-
+module.exports = new LoginController();

@@ -25,10 +25,12 @@ app.use(session({
 );
 
 require("dotenv").config();
+require("dotenv").config();
 const upload = multer({
   dest: "uploads/",
 });
 
+port = 3000;
 port = 3000;
 db.connect();
 app.engine(
@@ -39,9 +41,19 @@ app.engine(
 );
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
+app.engine(
+  ".hbs",
+  engine({
+    extname: ".hbs",
+  })
+);
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "resources/views"));
 
+route(app);
 route(app);
 
 app.listen(port, () =>
+  console.log(`App listening at http://localhost:${port}`)
   console.log(`App listening at http://localhost:${port}`)
 );

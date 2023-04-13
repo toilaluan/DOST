@@ -65,8 +65,12 @@ class ReadController {
         .catch(console.error);
     }
   }
-  store_confirm(req, res) {
-    res.render();
+  async store_confirm(req, res) {
+    await Doc.create(req.body, (err, res) => {
+      if (err) throw err;
+      console.log("Upload successfully!");
+    });
+    res.redirect("/");
   }
 }
 module.exports = new ReadController();
