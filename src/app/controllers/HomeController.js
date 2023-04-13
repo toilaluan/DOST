@@ -35,6 +35,7 @@ class HomeController {
                       
                       let inner_link = "http://localhost:3000/doc/show?id=" + doc._id;
                       doc = doc.toObject();
+                      doc.created_at = doc.created_at.toDateString();
                       try {
                         doc.tags = doc.tags.split(",");
                       } catch (err) {}
