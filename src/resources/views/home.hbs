@@ -1,30 +1,39 @@
 <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">DOST</h1>
-        <p class="lead text-body-secondary">Bạn cần tài liệu gì, chúng tôi đều có</p>
-        <p>
-          <a href="/search" class="btn btn-primary my-2">Tìm kiếm tài liệu</a>
-          <a href="/doc/upload" class="btn btn-secondary my-2">Đăng tài liệu</a>
-        </p>
-      </div>
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">DOST</h1>
+      <p class="lead text-body-secondary">Bạn cần tài liệu gì, chúng tôi đều có</p>
+      <p>
+        <a href="/search" class="btn btn-primary my-2">Tìm kiếm tài liệu</a>
+        <a href="/doc/upload" class="btn btn-secondary my-2">Đăng tài liệu</a>
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
 <div class="album py-3 bg-body-tertiary">
-    <div class="container">
-        <div class="row">
-            {{#each docs}}
-            <a href={{this.inner_link}} class="card-link" style="text-decoration: none;">
-                <div class="card mx-2 mb-2" style="width: auto; transition: box-shadow 0.3s;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{this.title}}</h5>
-                        <p class="card-text">{{this.summary}}</p>
-                        <p class="card-text">{{#each this.tags}}<span class="badge bg-info mx-1">{{this}}</span>{{/each}}</p>
-                    </div>
-                </div>
-            </a>
-            {{/each}}
-        </div>
+  <div class="container">
+    <div class="row">
+      {{#each docs}}
+        <a
+          href={{this.inner_link}}
+          class="card-link"
+          style="text-decoration: none;"
+        >
+          <div
+            class="card mx-2 mb-2"
+            style="width: auto; transition: box-shadow 0.3s;"
+          >
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text">{{this.summary}}</p>
+              <p class="card-text">{{#each this.tags}}<span
+                    class="badge bg-info mx-1"
+                  >{{this}}</span>{{/each}}</p>
+            </div>
+          </div>
+        </a>
+      {{/each}}
     </div>
+  </div>
 </div>

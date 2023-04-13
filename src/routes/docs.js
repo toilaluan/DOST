@@ -1,12 +1,13 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
-const docController = require('../app/controllers/DocController')
-const multer = require('multer');
+const docController = require("../app/controllers/DocController");
+const multer = require("multer");
 const upload = multer({
-    dest: 'uploads/'
+  dest: "uploads/",
 });
-router.get('/upload', docController.upload)
-router.post('/store', upload.single('file'), docController.store);
-router.get('/:slug', docController.show)    
+router.get("/upload", docController.upload);
+router.post("/store", upload.single("file"), docController.store);
+router.post("/store_confirm", docController.store_confirm)
+router.get("/:slug", docController.show);
 
-module.exports = router
+module.exports = router;
