@@ -11,6 +11,11 @@ class ReadController {
       if (err) {
         console.error(err);
       } else {
+        Doc.updateOne({ _id: query.id }, { $set: { views: doc.views+1 }}, (err, result) => {
+          if (err) {
+            console.log('Error:', err);
+          }
+        });
         doc = doc.toObject();
         let id = gdUtils.getFileIdFromUrl(doc.link);
         let previewLink = gdUtils.idToPreviewLink(id);
