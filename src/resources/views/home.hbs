@@ -25,11 +25,31 @@
             style="width: auto; transition: box-shadow 0.3s;"
           >
             <div class="card-body">
-              <h5 class="card-title">{{this.title}}</h5>
-              <p class="card-text">{{this.summary}}</p>
-              <p class="card-text">{{#each this.tags}}<span
-                    class="badge bg-info mx-1"
-                  >{{this}}</span>{{/each}}</p>
+              <div class="row">
+                <div class="col-md-2">
+                  <img src="image.jpg" class="card-img-top" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <h5 class="card-title">{{this.title}}</h5>
+                  <p class="card-text">{{this.summary}}</p>
+                  <p class="card-text">{{#each this.tags}}<span
+                        class="badge bg-info mx-1"
+                      >{{this}}</span>{{/each}}</p>
+                </div>
+                <div
+                  class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                >
+                  <div
+                    class="card"
+                    style="width: 8rem; background-color: #6EB5A3; color: #fff; font-size: 24px;"
+                  >
+                    <div class="badge">
+                      <h5 class="card-title">{{this.price}}</h5>
+                      <h6 class="card-subtitle mb-2">USD</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </a>

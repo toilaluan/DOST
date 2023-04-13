@@ -24,17 +24,22 @@ class ReadController {
     res.render("docs/upload");
   }
   // [POST] /doc/store
+
   store(req, res) {
     if (req.file) {
       authorize()
         .then((client) => uploadFile(client, req))
         .then((uploadedFile) => call_api(uploadedFile, req))
-        .then((new_doc) => console.log(new_doc))
+        .then((new_doc) => res.render("docs/store", new_doc))
         .catch(console.error);
     }
   }
-  store_confirm(req, res) {
-    res.render()
+  async store_confirm(req, res) {
+    await Doc.create(req.body, (err, res) => {
+      if (err) throw err;
+      console.log("Upload successfully!");
+    });
+    res.redirect("/");
   }
 }
 module.exports = new ReadController();
