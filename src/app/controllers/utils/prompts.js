@@ -1,7 +1,7 @@
-const api_key = "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"
+const api_key = "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";
 const prompts = {
-    system: "you are an document helper. you read a text and answer user question",
-    gen_prompt: "generate summary and tags, return as a json with format: {summary: text, tags: text}",
-}
+  system: "you are an document assistant",
+  gen_prompt: `generate title, summary, tags. each in a separated line`,
+};
 
-module.exports = {api_key, prompts}
+module.exports = { api_key, prompts };

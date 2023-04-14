@@ -1,0 +1,46 @@
+
+element.style {
+    background-image: url(https://pixta-top-image-production.pvnservices.com/top_page/TopPageImage/1385/67e1b66d-b12e-4bef-9e74-e3aec55eefca.jpg?auto=format);
+}
+.top-main {
+    margin-top: -40px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, main, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    color: #333;
+    vertical-align: baseline;
+    background-color: transparent;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.top-wrap {
+    min-width: 1100px;
+    text-align: center;
+}
+.page-body {
+    position: relative;
+    text-align: left;
+    background-color: #fff;
+}
+body {
+    font-size: 12px;
+    font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic Pro", "Noto Sans CJK JP", Meiryo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans Emoji";
+}
+:root, html, body {
+    line-height: 1.45;
+}
+html {
+    font-size: 62.5%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
