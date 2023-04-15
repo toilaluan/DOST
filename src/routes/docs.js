@@ -8,6 +8,7 @@ const upload = multer({
 router.get("/upload", docController.upload);
 router.post("/store", upload.single("file"), docController.store);
 router.post("/store/confirm", docController.store_confirm);
+router.get("/chat", docController.chat);
 router.get("/:slug", docController.show);
 
 module.exports = router;

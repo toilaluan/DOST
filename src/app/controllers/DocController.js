@@ -4,8 +4,10 @@ const Doc = require("../models/Doc");
 const gdUtils = require("./utils/GoogleDriveUtils");
 const { authorize, uploadFile } = require("./utils/DriveAPI");
 const readableDoc = require("./utils/Docs/readableDoc");
+const url = require("url");
+const axios = require("axios");
+
 class ReadController {
-  // [GET] /doc/show
   show(req, res) {
     if (!req.session.loggedin) {
       let query = req.query;
@@ -13,9 +15,6 @@ class ReadController {
         if (err) {
           console.error(err);
         }
-        // console.log(doc);
-        // const t = readableDoc(doc, req);
-        // console.log(t)
         if (readableDoc(doc, req)) {
           doc = doc.toObject();
           let id = gdUtils.getFileIdFromUrl(doc.link);
@@ -32,16 +31,11 @@ class ReadController {
         if (err) {
           console.error(err);
         }
-        // console.log(doc);
-        // const t = readableDoc(doc, req);
-        // console.log(t)
         if (readableDoc(doc, req)) {
           doc = doc.toObject();
           let id = gdUtils.getFileIdFromUrl(doc.link);
           let previewLink = gdUtils.idToPreviewLink(id);
           doc.link = previewLink;
-
-          // res.render("docs/show",{doc, layout: 'main_logined' });
           res.render(
             "docs/show",
             Object.assign({}, doc, { layout: "main_logined" })
@@ -52,11 +46,9 @@ class ReadController {
       });
     }
   }
-  // [GET] /doc/upload
   upload(req, res, next) {
     res.render("docs/upload");
   }
-  // [POST] /doc/store
   store(req, res) {
     if (req.file) {
       // res.render("docs/store", {
@@ -87,6 +79,23 @@ class ReadController {
       console.log("Upload successfully!");
     });
     res.redirect("/");
+  }
+  chat(req, res) {
+    Doc.findById(req.query.id, (err, doc) => {
+      console.log(doc.link);
+      const data = {
+        link: doc.link,
+      };
+      axios
+        .post("http://localhost:8000/init", data)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      res.render("docs/chat", { id: req.query.id });
+    });
   }
 }
 module.exports = new ReadController();
