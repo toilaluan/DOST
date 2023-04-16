@@ -22,7 +22,7 @@
   <div class="form-group mb-3">
     <div class="mb-3">
       <label class="form-label">Tags</label>
-      <input class="form-control" value="{{tags}} autofocus" rows="3" name="tags" />
+      <input class="form-control" value="{{tags}}" rows="3" name="tags" />
     </div>
   </div>
   <div class="form-group mb-3">
@@ -39,9 +39,11 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
-<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
-<script>
-  var input = document.querySelector('input[name=tags]');
-  new Tagify(input)
-</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"
+></script>
+<link
+  href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css"
+  rel="stylesheet"
+  type="text/css"
+/>
