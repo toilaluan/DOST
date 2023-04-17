@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Scrolling Ad Example</title>
+  <style>
+    #ad-container {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 750px;
+        height: 105px;
+        z-index: 999;
+
+    }
+
+    #close-btn {
+      position: absolute;
+      top: -2px;
+      right: -3px;
+      width: 20px;
+      height: 20px;
+      border: none;
+      background-color: rgb(255, 255, 255);
+      color: #fd0000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #x {  
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        display: inline-block; 
+        text-align: center; 
+        width: 20px; 
+        height: 20px;
+        border-radius: 20%; 
+        background-color: red; 
+        color: white; 
+        font-size: 16px; 
+        line-height: 20px; 
+      
+    }  
+
+</style>
+</head>
+<body>
+  <div id="ad-container">
+    <!-- Your ad code goes here -->
+    <img src="https://www.shutterstock.com/image-vector/violet-purple-background-blue-flyer-600w-1249949341.jpg" alt="Ad" width="100%" height="93%">
+    <!-- Close button -->
+    <button id="close-btn"><div id="x">x</div></button>
+  </div>
+  <script>
+    const adContainer = document.getElementById("ad-container");
+    const closeBtn = document.getElementById("close-btn");
+    const adHeight = adContainer.offsetHeight;
+    let isAdVisible = true;
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+      const bottomMargin = 20;
+
+      // Calculate the top position of
+      // the ad container when it's visible
+      const adTop = bodyHeight - adHeight - bottomMargin;
+
+      // Hide or show the ad based on the scroll position
+
+});
+closeBtn.addEventListener("click", () => {
+  adContainer.style.display = "none";
+});
+  </script>
+</body>
+</html>
