@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://localhost:8000/ws");
+const ws = new WebSocket("ws://localhost:8000/ws");
 ws.onmessage = function (event) {
   var messages = document.getElementById("chat-box");
   var message = document.createElement("div");
