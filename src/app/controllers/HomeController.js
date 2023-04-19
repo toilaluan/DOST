@@ -17,7 +17,7 @@ class HomeController {
       .exec((err, docs) => {
         if (err) console.log("err");
         docs = docs.map((doc) => {
-          let inner_link = "http://localhost:3000/doc/show?id=" + doc._id;
+          let inner_link = "/doc/show?id=" + doc._id;
           doc = doc.toObject();
           doc.created_at = doc.created_at.toDateString();
 
