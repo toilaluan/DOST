@@ -24,6 +24,8 @@ class ProfileController {
                         let inner_link =
                             "http://localhost:3000/read?id=" + doc._id;
                         doc = doc.toObject();
+                        doc.created_at = doc.created_at.toDateString();
+
                         doc.tags = doc.tags.split(",");
                         doc.inner_link = inner_link;
                         return doc;

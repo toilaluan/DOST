@@ -1,19 +1,12 @@
 const Doc = require("../models/Doc");
-docs = [
-  {
-    title: "biendeptrai",
-    summary: "Qua dep trai",
-    tags: "deptrai",
-    link: "fine",
-  },
-];
+
 class SearchController {
   index(req, res) {
     if (!req.session.loggedin){
-      res.render("search", { docs, search_css: "search.css" });
+      res.render("search", {  search_css: "search.css" });
     }
     else {
-      res.render("search", { docs, layout : 'main_logined',search_css: "search.css" });
+      res.render("search", {  layout : 'main_logined',search_css: "search.css" });
     }
   }
   searchKey(req, res) {
@@ -31,6 +24,8 @@ class SearchController {
           docs = docs.map((doc) => {
             let inner_link = "http://localhost:3000/doc/show?id=" + doc._id;
             doc = doc.toObject();
+          doc.created_at = doc.created_at.toDateString();
+
             try {
               doc.tags = doc.tags.split(",");
             } catch (err) {}
@@ -54,6 +49,8 @@ class SearchController {
           docs = docs.map((doc) => {
             let inner_link = "http://localhost:3000/doc/show?id=" + doc._id;
             doc = doc.toObject();
+          doc.created_at = doc.created_at.toDateString();
+
             try {
               doc.tags = doc.tags.split(",");
             } catch (err) {}

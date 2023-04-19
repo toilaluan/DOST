@@ -51,15 +51,30 @@ class ReadController {
 				});
 		}
 	}
+
+
 	upload(req, res, next) {
-		res.render("docs/upload");
+		if (!req.session.loggedin){
+			res.render("docs/upload");
+		}
+		else {
+			res.render("docs/upload", {layout: "main_logined"});
+		}
 	}
+	
 	store(req, res) {
 		if (req.file) {
 			authorize()
 				.then((client) => uploadFile(client, req))
 				.then((uploadedFile) => call_api(uploadedFile, req))
-				.then((new_doc) => res.render("docs/store", new_doc))
+				.then((new_doc) => {
+					if (!req.session.loggedin){
+						res.render("docs/store", new_doc);
+					}
+					else {
+						res.render("docs/store", new_doc, {layout: "main_logined"});
+					}
+				}) 
 				.catch(console.error);
 		}
 	}
@@ -105,6 +120,8 @@ class ReadController {
 					.catch((error) => {
 						console.error(error);
 					});
+
+
 				res.render("docs/chat", doc);
 			} catch(e) {
         console.log(e)

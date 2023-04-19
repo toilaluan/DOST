@@ -19,21 +19,49 @@
 
 </form>
 
+
 <div class="album py-3 bg-body-tertiary">
   <div class="container">
     <div class="row">
       {{#each docs}}
-        <a href={{this.link}} class="card-link" style="text-decoration: none;">
+        <a
+          href={{this.inner_link}}
+          class="card-link"
+          style="text-decoration: none;"
+        >
           <div
             class="card mx-2 mb-2"
             style="width: auto; transition: box-shadow 0.3s;"
           >
             <div class="card-body">
-              <h5 class="card-title">{{this.title}}</h5>
-              <p class="card-text">{{this.summary}}</p>
-              <p class="card-text">{{#each this.tags}}<span
-                    class="badge bg-info mx-1"
-                  >{{this}}</span>{{/each}}</p>
+              <div class="row">
+                <div class="col-md-10">
+                  <h5 class="card-title">{{this.title}}</h5>
+                  <p class="card-text">{{this.summary}}</p>
+                  <p class="card-text">{{#each this.tags}}<span
+                        class="badge bg-info mx-1"
+                      >{{this}}</span>{{/each}}</p>
+                </div>
+                <div
+                  class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                >
+                  <div
+                    class="badge"
+                    style="background-color: #3b71ca; color: #fff;"
+                  >
+                    <div class="card-header">
+                      <span class="badge badge-secondary"><i
+                          class="fas fa-eye"
+                        ></i>
+                        {{views}}</span>
+                      <span class="badge badge-info">{{created_at}}</span>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-text">${{price}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </a>
