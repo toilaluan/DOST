@@ -122,9 +122,18 @@ class ReadController {
 					});
 
 
-				res.render("docs/chat", doc);
-			} catch(e) {
-        console.log(e)
+					
+						if (!req.session.loggedin){
+							res.render("docs/chat", doc);
+						}
+						else {
+							
+							let merge = Object.assign({},doc,{layout: "main_logined"})
+							res.render("docs/chat", merge);
+						}
+
+					 }	 catch(e) {
+        			console.log(e)
 				res.redirect("/");
 			}
 		});

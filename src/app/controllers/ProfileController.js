@@ -19,10 +19,10 @@ class ProfileController {
                 if (err) {
                     console.log(err);
                 } else {
-                    // console.log(readableDoc(docs[0],req))
+                //    console.log(docs.length)
                     docs = docs.map((doc) => {
                         let inner_link =
-                            "http://localhost:3000/read?id=" + doc._id;
+                            "http://localhost:3000/doc/show?id=" + doc._id;
                         doc = doc.toObject();
                         doc.created_at = doc.created_at.toDateString();
 
@@ -33,7 +33,7 @@ class ProfileController {
                     res.render("profile", {
                         docs,
                         username: user.username,
-                        num_article: user.num_articles,
+                        num_article: docs.length,
                         layout : 'main_logined'
                     });
                 }
