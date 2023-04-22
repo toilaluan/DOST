@@ -68,11 +68,12 @@ class ReadController {
 				.then((client) => uploadFile(client, req))
 				.then((uploadedFile) => call_api(uploadedFile, req))
 				.then((new_doc) => {
+					console.log(new_doc)
 					if (!req.session.loggedin){
 						res.render("docs/store", new_doc);
 					}
 					else {
-						res.render("docs/store", new_doc, {layout: "main_logined"});
+						res.render("docs/store", new_doc);
 					}
 				}) 
 				.catch(console.error);
