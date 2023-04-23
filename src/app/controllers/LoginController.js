@@ -15,7 +15,7 @@ class LoginController {
         let username = req.body.username
         let password = req.body.password
         if (username == '' || password == '') {
-            return res.redirect("/login");
+            return res.redirect("/");
         }
 
         // encode username,password
@@ -32,7 +32,7 @@ class LoginController {
             if (user[0].password == password) {
                 req.session.loggedin = true;
                 req.session.user = user;
-                return res.redirect("/profile");
+                return res.redirect("/");
             }
             else {
                 res.redirect("/login");
