@@ -1,6 +1,9 @@
 ## DOST - DOc STock by MUBK
 
-A platform for sharing document with profit
+A platform for sharing document with AI Technology:
+1. Auto Generate title, summary, tags when upload
+2. Semantic search
+3. Document Chatbot
 
 ### How to install?
 
